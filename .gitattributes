@@ -1,0 +1,19 @@
+# 自动换行处理：文本文件入库统一 LF，Windows 检出时按需转换
+* text=auto
+
+*.sh            text eol=lf
+*.rs            text eol=lf
+*.ts            text eol=lf
+*.vue           text eol=lf
+*.json          text eol=lf
+*.md            text eol=lf
+*.yml           text eol=lf
+*.yaml          text eol=lf
+*.toml          text eol=lf
+
+*.png           binary
+*.ico           binary
+*.icns          binary
+*.AppImage      binary
+*.exe           binary
+*.msi           binary
