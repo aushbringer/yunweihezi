@@ -7,7 +7,7 @@
 ### 新增
 - SSH 会话创建/编辑对话框新增「**测试连接**」按钮，使用当前表单参数（含跳板机、代理）进行真实连接与认证测试，成功显示耗时、失败显示原因
 - 会话树支持**鼠标拖拽**：会话可拖入任意分组，拖到空白区域移出分组
-- 免安装 **portable ZIP** 构建目标
+- 免安装 **portable ZIP** 分发包（`scripts/package-portable.ps1` 组装）
 - Linux（麒麟 V10 / UOS / Ubuntu）打包脚本 `scripts/build-kylin.sh`
 
 ### 变更

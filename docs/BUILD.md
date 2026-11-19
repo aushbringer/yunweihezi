@@ -43,18 +43,29 @@ npm run tauri build
 ```
 src-tauri/target/release/bundle/
 ├── nsis/openterm_1.0.13_x64-setup.exe      # 安装包（推荐分发）
-├── msi/openterm_1.0.13_x64_en-US.msi       # 企业批量部署
-└── portable/openterm_1.0.13_x64-portable.zip  # 免安装
+└── msi/openterm_1.0.13_x64_en-US.msi       # 企业批量部署
 ```
 
 只构建某一种：
 
 ```powershell
 npm run tauri build -- --bundles nsis
-npm run tauri build -- --bundles portable
+npm run tauri build -- --bundles msi
 ```
 
-### 2.3 NSIS 与 MSI 的区别
+### 2.3 免安装 ZIP
+
+Tauri 没有内置的 portable 目标，免安装包由脚本从已编译的 exe 组装（不写注册表、不装服务）：
+
+```powershell
+npm run tauri build -- --bundles nsis   # 先产出 exe
+.\scripts\package-portable.ps1          # 组装并压缩
+```
+
+产物：`src-tauri/target/release/bundle/portable/openterm_1.0.13_x64-portable.zip`
+内含 `openterm.exe`、使用手册与快速开始说明，解压即可运行（数据仍写入用户 AppData）。
+
+### 2.4 NSIS 与 MSI 的区别
 
 | | NSIS（setup.exe） | MSI |
 |---|---|---|
